@@ -1,13 +1,8 @@
-import 'package:f_mobx/store/counter/counter.dart';
+import 'package:flut_mobx/store/counter/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class CounterPage extends StatefulWidget {
-  @override
-  _CounterPageState createState() => _CounterPageState();
-}
-
-class _CounterPageState extends State<CounterPage> {
+class CounterPage extends StatelessWidget {
   final Counter counter = Counter();
 
   @override
@@ -20,24 +15,29 @@ class _CounterPageState extends State<CounterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Counter', style: TextStyle(fontSize: 30.0),),
+              Text(
+                'Counter',
+                style: TextStyle(fontSize: 30.0),
+              ),
               Observer(
-                builder: (_) => Text('${counter.value}', style: TextStyle(fontSize: 42.0)),
+                builder: (_) =>
+                    Text('${counter.value}', style: TextStyle(fontSize: 42.0)),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                FlatButton.icon(
-                  icon: Icon(Icons.add),
-                  label: Text('Add'),
-                  onPressed: counter.increment,
-                ),
-                FlatButton.icon(
-                  icon: Icon(Icons.remove),
-                  label: Text('Remove'),
-                  onPressed: counter.decrement,
-                ),
-              ],)
+                  FlatButton.icon(
+                    icon: Icon(Icons.add),
+                    label: Text('Add'),
+                    onPressed: counter.increment,
+                  ),
+                  FlatButton.icon(
+                    icon: Icon(Icons.remove),
+                    label: Text('Remove'),
+                    onPressed: counter.decrement,
+                  ),
+                ],
+              )
             ],
           ),
         ));
